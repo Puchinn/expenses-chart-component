@@ -13,6 +13,7 @@ function Chart() {
 		}
 	}, [])
 
+	console.log(today)
 	return (
 		<div className='space-y-6 rounded-2xl bg-Very-pale-orange px-9 pt-7 pb-12'>
 			<h1 className='text-3xl text-Dark-brown'>
