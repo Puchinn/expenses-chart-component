@@ -7,8 +7,8 @@ function Bar({ day, amount, today }) {
 			</div>
 			<div
 				className={`mx-auto ${
-					today && 'bg-Cyan'
-				} w-12 rounded-md bg-Soft-red group-hover:bg-Cyan`}
+					today ? 'bg-Cyan' : 'bg-Soft-red'
+				} w-12 rounded-md  group-hover:bg-Cyan`}
 				style={{ height: altura }}></div>
 			<p className='text-center text-Medium-brown'>{day}</p>
 		</div>
