@@ -2,14 +2,23 @@ import Bar from './Bar'
 import data from '../data'
 
 function Chart() {
+	let hoy = new Date().getDay()
+	if (hoy - 1 < 0) {
+		hoy = data.length - 1
+	} else {
+		hoy--
+	}
 	return (
 		<div className='space-y-6 rounded-2xl bg-Very-pale-orange px-9 pt-7 pb-12'>
 			<h1 className='text-3xl text-Dark-brown'>
 				<strong>Spending - Last 7 days</strong>
 			</h1>
-			<div className='flex items-end justify-around gap-x-1 border-b-2 border-Cream pt-8 pb-7'>
-				{data.map(item => {
-					return <Bar key={item.day} day={item.day} amount={item.amount} />
+			<div className='flex items-end justify-around gap-x-3 border-b-2 border-Cream pt-8 pb-7'>
+				{data.map((item, i) => {
+					if (i === hoy) {
+						return <Bar key={item.day} day={item.day} amount={item.amount} today={true} />
+					}
+					return <Bar key={item.day} day={item.day} amount={item.amount} today={false} />
 				})}
 			</div>
 			<div className='flex justify-between'>
