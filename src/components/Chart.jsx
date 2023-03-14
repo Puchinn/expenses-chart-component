@@ -1,19 +1,10 @@
 import Bar from './Bar'
 import data from '../data'
-import { useState, useEffect } from 'react'
 
 function Chart() {
-	const [today, setToday] = useState(null)
-	useEffect(() => {
-		const hoy = new Date().getDay()
-		if (hoy - 1 < 0) {
-			setToday(data.length - 1)
-		} else {
-			setToday(hoy - 1)
-		}
-	}, [])
+	const today =
+		new Date().getDay() - 1 < 0 ? data.length - 1 : new Date().getDay() - 1
 
-	console.log(today)
 	return (
 		<div className='space-y-6 rounded-2xl bg-Very-pale-orange px-9 pt-7 pb-12'>
 			<h1 className='text-3xl text-Dark-brown'>
