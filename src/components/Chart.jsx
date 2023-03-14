@@ -2,21 +2,19 @@ import Bar from './Bar'
 import data from '../data'
 
 function Chart() {
-	const today =
-		new Date().getDay() - 1 < 0 ? data.length - 1 : new Date().getDay() - 1
+	const today = (new Date().getDay() + 6) % 7
 
+	// El valor obtenido lo modificamos para que 0 sea Lunes y 6 sea Domingo
+	// que podemos utilizar para identificar la posición correspondiente en un arreglo
 	return (
 		<div className='space-y-6 rounded-2xl bg-Very-pale-orange px-4 pt-7 pb-6 sm:px-9 sm:pb-12'>
 			<h1 className='text-3xl text-Dark-brown'>
 				<strong>Spending - Last 7 days</strong>
 			</h1>
 			<div className='flex items-end justify-around gap-x-2 border-b-2 border-Cream pt-8 pb-7 sm:gap-x-3'>
-				{data.map((item, i) => {
-					if (i === today) {
-						return <Bar key={item.day} day={item.day} amount={item.amount} today={true} />
-					}
-					return <Bar key={item.day} day={item.day} amount={item.amount} today={false} />
-				})}
+				{data.map((item, i) => (
+					<Bar key={item.day} day={item.day} amount={item.amount} today={i === today} />
+				))}
 			</div>
 			<div className='flex justify-between'>
 				<div>
