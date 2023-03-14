@@ -1,6 +1,6 @@
 function Balance() {
 	return (
-		<div className='flex w-full items-center justify-between rounded-2xl bg-Soft-red py-7 px-10 text-Very-pale-orange'>
+		<div className='flex w-full items-center justify-between rounded-2xl bg-Soft-red py-7 px-6 text-Very-pale-orange sm:px-10'>
 			<div className='space-y-2'>
 				<h1 className='text-lg'>My balance</h1>
 				<p className='text-3xl'>
